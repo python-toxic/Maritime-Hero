@@ -1,0 +1,29 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^slug/([^/]+)$ show.php?slug=$1 [L,QSA]
+
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^([0-9]+)/schedule$ schedule.php?id=$1 [L,QSA]
+
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^([0-9]+)/publish$ publish.php?id=$1 [L,QSA]
+
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^([0-9]+)/unschedule$ unschedule.php?id=$1 [L,QSA]
+
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^([0-9]+)$ show.php?id=$1 [L,QSA]
+
+RewriteCond %{REQUEST_METHOD} PUT
+RewriteRule ^([0-9]+)$ update.php?id=$1 [L,QSA]
+
+RewriteCond %{REQUEST_METHOD} DELETE
+RewriteRule ^([0-9]+)$ delete.php?id=$1 [L,QSA]
+
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^$ index.php [L,QSA]
+
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^$ create.php [L,QSA]

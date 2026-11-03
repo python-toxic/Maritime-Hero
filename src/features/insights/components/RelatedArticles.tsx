@@ -1,9 +1,9 @@
 import { ArticleCard } from "./ArticleCard";
-import { getRelatedArticles } from "@/features/insights";
+import { useRelatedArticles } from "@/features/insights/lib/queries";
 
 export function RelatedArticles({ slug }: { slug: string }) {
-  const related = getRelatedArticles(slug, 3);
-  if (related.length === 0) return null;
+  const { data: related = [], isLoading } = useRelatedArticles(slug, 3);
+  if (isLoading || related.length === 0) return null;
   return (
     <section className="mx-auto mt-16 max-w-6xl">
       <h2 className="text-xl font-semibold tracking-tight text-foreground">

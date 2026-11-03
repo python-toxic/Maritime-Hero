@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { AdminLayout } from "@/features/admin/components/AdminLayout";
 import { ArticleEditor } from "@/features/admin/components/ArticleEditor";
 
 export const Route = createFileRoute("/admin/articles/new")({
@@ -9,8 +8,6 @@ export const Route = createFileRoute("/admin/articles/new")({
 
 function NewArticle() {
   return (
-    <AdminLayout>
-      <ArticleEditor mode="new" />
-    </AdminLayout>
+    <ArticleEditor mode="new" />
   );
 }

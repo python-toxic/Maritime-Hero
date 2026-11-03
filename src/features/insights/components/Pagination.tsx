@@ -6,7 +6,17 @@ interface Props {
 
 export function Pagination({ page, totalPages, onChange }: Props) {
   if (totalPages <= 1) return null;
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+  // Limit visible pages to 5 to prevent huge DOM tree if totalPages is very large
+  const maxVisible = 5;
+  let start = Math.max(1, page - Math.floor(maxVisible / 2));
+  let end = Math.min(totalPages, start + maxVisible - 1);
+
+  if (end - start + 1 < maxVisible) {
+    start = Math.max(1, end - maxVisible + 1);
+  }
+
+  const pages = Array.from({ length: end - start + 1 }, (_, i) => start + i);
+
   return (
     <nav
       className="mt-12 flex items-center justify-center gap-2"
@@ -20,6 +30,17 @@ export function Pagination({ page, totalPages, onChange }: Props) {
         Previous
       </button>
       <div className="hidden gap-1 sm:flex">
+        {start > 1 && (
+          <>
+            <button
+              onClick={() => onChange(1)}
+              className="h-11 w-11 rounded-md border border-border bg-background text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            >
+              1
+            </button>
+            {start > 2 && <span className="flex items-center justify-center w-8 text-muted-foreground">...</span>}
+          </>
+        )}
         {pages.map((p) => (
           <button
             key={p}
@@ -34,6 +55,17 @@ export function Pagination({ page, totalPages, onChange }: Props) {
             {p}
           </button>
         ))}
+        {end < totalPages && (
+          <>
+            {end < totalPages - 1 && <span className="flex items-center justify-center w-8 text-muted-foreground">...</span>}
+            <button
+              onClick={() => onChange(totalPages)}
+              className="h-11 w-11 rounded-md border border-border bg-background text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            >
+              {totalPages}
+            </button>
+          </>
+        )}
       </div>
       <span className="text-sm text-muted-foreground sm:hidden">
         Page {page} of {totalPages}

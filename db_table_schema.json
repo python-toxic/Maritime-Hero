@@ -1,0 +1,56 @@
+[
+{"type":"header","version":"5.2.2","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"u131504548_Insights"},
+{"type":"table","name":"admins","database":"u131504548_Insights","data":
+[
+{"id":"1","username":"rsmarineacademy@gmail.com","password_hash":"$2y$10$9XjCvIJM5nJmZZpBwQSmr.D8vUxKqfGx0KfnHmJmJZ8RJ0Z2K2Hcq","secret_number":"8356929017","created_at":"2026-05-31 12:24:07","updated_at":"2026-05-31 12:24:07"}
+]
+}
+,{"type":"table","name":"admin_log","database":"u131504548_Insights","data":
+[
+
+]
+}
+,{"type":"table","name":"articles","database":"u131504548_Insights","data":
+[
+
+]
+}
+,{"type":"table","name":"categories","database":"u131504548_Insights","data":
+[
+
+]
+}
+,{"type":"table","name":"faqs","database":"u131504548_Insights","data":
+[
+
+]
+}
+,{"type":"table","name":"review_history","database":"u131504548_Insights","data":
+[
+
+]
+}
+,{"type":"table","name":"roles","database":"u131504548_Insights","data":
+[
+{"id":"1","name":"admin","created_at":"2026-06-01 02:36:17"},
+{"id":"2","name":"manager","created_at":"2026-06-01 02:36:17"},
+{"id":"3","name":"employee","created_at":"2026-06-01 02:36:17"}
+]
+}
+,{"type":"table","name":"uploads","database":"u131504548_Insights","data":
+[
+
+]
+}
+,{"type":"table","name":"users","database":"u131504548_Insights","data":
+[
+{"id":"1","email":"rsmarineacademy@gmail.com","password_hash":"$2y$10$9XjCvIJM5nJmZZpBwQSmr.D8vUxKqfGx0KfnHmJmJZ8RJ0Z2K2Hcq","role_id":"1","status":"active","created_by":null,"created_at":"2026-05-31 12:24:07","updated_at":"2026-05-31 12:24:07"}
+]
+}
+,{"type":"table","name":"user_sessions","database":"u131504548_Insights","data":
+[
+
+]
+}
+]

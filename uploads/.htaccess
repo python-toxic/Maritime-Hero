@@ -1,0 +1,6 @@
+# Allow direct access to uploaded images
+Options -Indexes
+
+<IfModule mod_headers.c>
+  Header set Cache-Control "public, max-age=31536000"
+</IfModule>

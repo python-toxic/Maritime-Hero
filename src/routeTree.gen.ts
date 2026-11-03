@@ -9,19 +9,80 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TrainingRouteImport } from './routes/training'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as CredentialsRouteImport } from './routes/credentials'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CertificateVerificationRouteImport } from './routes/certificate-verification'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as InsightsIndexRouteImport } from './routes/insights.index'
-import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
-import { Route as AdminResetRouteImport } from './routes/admin.reset'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminScheduledRouteImport } from './routes/admin.scheduled'
 import { Route as AdminDashboardRouteImport } from './routes/admin.dashboard'
-import { Route as AdminArticlesIndexRouteImport } from './routes/admin.articles.index'
+import { Route as AdminReviewsIndexRouteImport } from './routes/admin.reviews.index'
+import { Route as AdminFaqIndexRouteImport } from './routes/admin.faq.index'
+import { Route as AdminContentIndexRouteImport } from './routes/admin.content.index'
+import { Route as AdminReviewsIdRouteImport } from './routes/admin.reviews.$id'
+import { Route as AdminFaqNewRouteImport } from './routes/admin.faq.new'
 import { Route as AdminArticlesNewRouteImport } from './routes/admin.articles.new'
+import { Route as AdminFaqIdEditRouteImport } from './routes/admin.faq.$id.edit'
 import { Route as AdminArticlesIdEditRouteImport } from './routes/admin.articles.$id.edit'
 
+const TrainingRoute = TrainingRouteImport.update({
+  id: '/training',
+  path: '/training',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CredentialsRoute = CredentialsRouteImport.update({
+  id: '/credentials',
+  path: '/credentials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CertificateVerificationRoute = CertificateVerificationRouteImport.update({
+  id: '/certificate-verification',
+  path: '/certificate-verification',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InsightsIndexRoute = InsightsIndexRouteImport.update({
@@ -29,9 +90,9 @@ const InsightsIndexRoute = InsightsIndexRouteImport.update({
   path: '/insights/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminIndexRoute = AdminIndexRouteImport.update({
-  id: '/admin/',
-  path: '/admin/',
+const ServicesSlugRoute = ServicesSlugRouteImport.update({
+  id: '/services/$slug',
+  path: '/services/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InsightsSlugRoute = InsightsSlugRouteImport.update({
@@ -39,121 +100,319 @@ const InsightsSlugRoute = InsightsSlugRouteImport.update({
   path: '/insights/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminResetRoute = AdminResetRouteImport.update({
-  id: '/admin/reset',
-  path: '/admin/reset',
-  getParentRoute: () => rootRouteImport,
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminScheduledRoute = AdminScheduledRouteImport.update({
+  id: '/scheduled',
+  path: '/scheduled',
+  getParentRoute: () => AdminRoute,
 } as any)
 const AdminDashboardRoute = AdminDashboardRouteImport.update({
-  id: '/admin/dashboard',
-  path: '/admin/dashboard',
-  getParentRoute: () => rootRouteImport,
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AdminRoute,
 } as any)
-const AdminArticlesIndexRoute = AdminArticlesIndexRouteImport.update({
-  id: '/admin/articles/',
-  path: '/admin/articles/',
-  getParentRoute: () => rootRouteImport,
+const AdminReviewsIndexRoute = AdminReviewsIndexRouteImport.update({
+  id: '/reviews/',
+  path: '/reviews/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminFaqIndexRoute = AdminFaqIndexRouteImport.update({
+  id: '/faq/',
+  path: '/faq/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminContentIndexRoute = AdminContentIndexRouteImport.update({
+  id: '/content/',
+  path: '/content/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReviewsIdRoute = AdminReviewsIdRouteImport.update({
+  id: '/reviews/$id',
+  path: '/reviews/$id',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminFaqNewRoute = AdminFaqNewRouteImport.update({
+  id: '/faq/new',
+  path: '/faq/new',
+  getParentRoute: () => AdminRoute,
 } as any)
 const AdminArticlesNewRoute = AdminArticlesNewRouteImport.update({
-  id: '/admin/articles/new',
-  path: '/admin/articles/new',
-  getParentRoute: () => rootRouteImport,
+  id: '/articles/new',
+  path: '/articles/new',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminFaqIdEditRoute = AdminFaqIdEditRouteImport.update({
+  id: '/faq/$id/edit',
+  path: '/faq/$id/edit',
+  getParentRoute: () => AdminRoute,
 } as any)
 const AdminArticlesIdEditRoute = AdminArticlesIdEditRouteImport.update({
-  id: '/admin/articles/$id/edit',
-  path: '/admin/articles/$id/edit',
-  getParentRoute: () => rootRouteImport,
+  id: '/articles/$id/edit',
+  path: '/articles/$id/edit',
+  getParentRoute: () => AdminRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/careers': typeof CareersRoute
+  '/certificate-verification': typeof CertificateVerificationRoute
+  '/contact': typeof ContactRoute
+  '/credentials': typeof CredentialsRoute
+  '/faq': typeof FaqRoute
+  '/training': typeof TrainingRoute
   '/admin/dashboard': typeof AdminDashboardRoute
-  '/admin/reset': typeof AdminResetRoute
+  '/admin/scheduled': typeof AdminScheduledRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/users': typeof AdminUsersRoute
   '/insights/$slug': typeof InsightsSlugRoute
-  '/admin/': typeof AdminIndexRoute
+  '/services/$slug': typeof ServicesSlugRoute
   '/insights/': typeof InsightsIndexRoute
+  '/services/': typeof ServicesIndexRoute
   '/admin/articles/new': typeof AdminArticlesNewRoute
-  '/admin/articles/': typeof AdminArticlesIndexRoute
+  '/admin/faq/new': typeof AdminFaqNewRoute
+  '/admin/reviews/$id': typeof AdminReviewsIdRoute
+  '/admin/content/': typeof AdminContentIndexRoute
+  '/admin/faq/': typeof AdminFaqIndexRoute
+  '/admin/reviews/': typeof AdminReviewsIndexRoute
   '/admin/articles/$id/edit': typeof AdminArticlesIdEditRoute
+  '/admin/faq/$id/edit': typeof AdminFaqIdEditRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/careers': typeof CareersRoute
+  '/certificate-verification': typeof CertificateVerificationRoute
+  '/contact': typeof ContactRoute
+  '/credentials': typeof CredentialsRoute
+  '/faq': typeof FaqRoute
+  '/training': typeof TrainingRoute
   '/admin/dashboard': typeof AdminDashboardRoute
-  '/admin/reset': typeof AdminResetRoute
+  '/admin/scheduled': typeof AdminScheduledRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/users': typeof AdminUsersRoute
   '/insights/$slug': typeof InsightsSlugRoute
-  '/admin': typeof AdminIndexRoute
+  '/services/$slug': typeof ServicesSlugRoute
   '/insights': typeof InsightsIndexRoute
+  '/services': typeof ServicesIndexRoute
   '/admin/articles/new': typeof AdminArticlesNewRoute
-  '/admin/articles': typeof AdminArticlesIndexRoute
+  '/admin/faq/new': typeof AdminFaqNewRoute
+  '/admin/reviews/$id': typeof AdminReviewsIdRoute
+  '/admin/content': typeof AdminContentIndexRoute
+  '/admin/faq': typeof AdminFaqIndexRoute
+  '/admin/reviews': typeof AdminReviewsIndexRoute
   '/admin/articles/$id/edit': typeof AdminArticlesIdEditRoute
+  '/admin/faq/$id/edit': typeof AdminFaqIdEditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/careers': typeof CareersRoute
+  '/certificate-verification': typeof CertificateVerificationRoute
+  '/contact': typeof ContactRoute
+  '/credentials': typeof CredentialsRoute
+  '/faq': typeof FaqRoute
+  '/training': typeof TrainingRoute
   '/admin/dashboard': typeof AdminDashboardRoute
-  '/admin/reset': typeof AdminResetRoute
+  '/admin/scheduled': typeof AdminScheduledRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/users': typeof AdminUsersRoute
   '/insights/$slug': typeof InsightsSlugRoute
-  '/admin/': typeof AdminIndexRoute
+  '/services/$slug': typeof ServicesSlugRoute
   '/insights/': typeof InsightsIndexRoute
+  '/services/': typeof ServicesIndexRoute
   '/admin/articles/new': typeof AdminArticlesNewRoute
-  '/admin/articles/': typeof AdminArticlesIndexRoute
+  '/admin/faq/new': typeof AdminFaqNewRoute
+  '/admin/reviews/$id': typeof AdminReviewsIdRoute
+  '/admin/content/': typeof AdminContentIndexRoute
+  '/admin/faq/': typeof AdminFaqIndexRoute
+  '/admin/reviews/': typeof AdminReviewsIndexRoute
   '/admin/articles/$id/edit': typeof AdminArticlesIdEditRoute
+  '/admin/faq/$id/edit': typeof AdminFaqIdEditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/admin'
+    | '/careers'
+    | '/certificate-verification'
+    | '/contact'
+    | '/credentials'
+    | '/faq'
+    | '/training'
     | '/admin/dashboard'
-    | '/admin/reset'
+    | '/admin/scheduled'
+    | '/admin/settings'
+    | '/admin/users'
     | '/insights/$slug'
-    | '/admin/'
+    | '/services/$slug'
     | '/insights/'
+    | '/services/'
     | '/admin/articles/new'
-    | '/admin/articles/'
+    | '/admin/faq/new'
+    | '/admin/reviews/$id'
+    | '/admin/content/'
+    | '/admin/faq/'
+    | '/admin/reviews/'
     | '/admin/articles/$id/edit'
+    | '/admin/faq/$id/edit'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/admin/dashboard'
-    | '/admin/reset'
-    | '/insights/$slug'
+    | '/about'
     | '/admin'
+    | '/careers'
+    | '/certificate-verification'
+    | '/contact'
+    | '/credentials'
+    | '/faq'
+    | '/training'
+    | '/admin/dashboard'
+    | '/admin/scheduled'
+    | '/admin/settings'
+    | '/admin/users'
+    | '/insights/$slug'
+    | '/services/$slug'
     | '/insights'
+    | '/services'
     | '/admin/articles/new'
-    | '/admin/articles'
+    | '/admin/faq/new'
+    | '/admin/reviews/$id'
+    | '/admin/content'
+    | '/admin/faq'
+    | '/admin/reviews'
     | '/admin/articles/$id/edit'
+    | '/admin/faq/$id/edit'
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/admin'
+    | '/careers'
+    | '/certificate-verification'
+    | '/contact'
+    | '/credentials'
+    | '/faq'
+    | '/training'
     | '/admin/dashboard'
-    | '/admin/reset'
+    | '/admin/scheduled'
+    | '/admin/settings'
+    | '/admin/users'
     | '/insights/$slug'
-    | '/admin/'
+    | '/services/$slug'
     | '/insights/'
+    | '/services/'
     | '/admin/articles/new'
-    | '/admin/articles/'
+    | '/admin/faq/new'
+    | '/admin/reviews/$id'
+    | '/admin/content/'
+    | '/admin/faq/'
+    | '/admin/reviews/'
     | '/admin/articles/$id/edit'
+    | '/admin/faq/$id/edit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminDashboardRoute: typeof AdminDashboardRoute
-  AdminResetRoute: typeof AdminResetRoute
+  AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRouteWithChildren
+  CareersRoute: typeof CareersRoute
+  CertificateVerificationRoute: typeof CertificateVerificationRoute
+  ContactRoute: typeof ContactRoute
+  CredentialsRoute: typeof CredentialsRoute
+  FaqRoute: typeof FaqRoute
+  TrainingRoute: typeof TrainingRoute
   InsightsSlugRoute: typeof InsightsSlugRoute
-  AdminIndexRoute: typeof AdminIndexRoute
+  ServicesSlugRoute: typeof ServicesSlugRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
-  AdminArticlesNewRoute: typeof AdminArticlesNewRoute
-  AdminArticlesIndexRoute: typeof AdminArticlesIndexRoute
-  AdminArticlesIdEditRoute: typeof AdminArticlesIdEditRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/training': {
+      id: '/training'
+      path: '/training'
+      fullPath: '/training'
+      preLoaderRoute: typeof TrainingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/credentials': {
+      id: '/credentials'
+      path: '/credentials'
+      fullPath: '/credentials'
+      preLoaderRoute: typeof CredentialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/certificate-verification': {
+      id: '/certificate-verification'
+      path: '/certificate-verification'
+      fullPath: '/certificate-verification'
+      preLoaderRoute: typeof CertificateVerificationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/insights/': {
@@ -163,11 +422,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/': {
-      id: '/admin/'
-      path: '/admin'
-      fullPath: '/admin/'
-      preLoaderRoute: typeof AdminIndexRouteImport
+    '/services/$slug': {
+      id: '/services/$slug'
+      path: '/services/$slug'
+      fullPath: '/services/$slug'
+      preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/insights/$slug': {
@@ -177,54 +436,139 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/reset': {
-      id: '/admin/reset'
-      path: '/admin/reset'
-      fullPath: '/admin/reset'
-      preLoaderRoute: typeof AdminResetRouteImport
-      parentRoute: typeof rootRouteImport
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/scheduled': {
+      id: '/admin/scheduled'
+      path: '/scheduled'
+      fullPath: '/admin/scheduled'
+      preLoaderRoute: typeof AdminScheduledRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/admin/dashboard': {
       id: '/admin/dashboard'
-      path: '/admin/dashboard'
+      path: '/dashboard'
       fullPath: '/admin/dashboard'
       preLoaderRoute: typeof AdminDashboardRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRoute
     }
-    '/admin/articles/': {
-      id: '/admin/articles/'
-      path: '/admin/articles'
-      fullPath: '/admin/articles/'
-      preLoaderRoute: typeof AdminArticlesIndexRouteImport
-      parentRoute: typeof rootRouteImport
+    '/admin/reviews/': {
+      id: '/admin/reviews/'
+      path: '/reviews'
+      fullPath: '/admin/reviews/'
+      preLoaderRoute: typeof AdminReviewsIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/faq/': {
+      id: '/admin/faq/'
+      path: '/faq'
+      fullPath: '/admin/faq/'
+      preLoaderRoute: typeof AdminFaqIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/content/': {
+      id: '/admin/content/'
+      path: '/content'
+      fullPath: '/admin/content/'
+      preLoaderRoute: typeof AdminContentIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/reviews/$id': {
+      id: '/admin/reviews/$id'
+      path: '/reviews/$id'
+      fullPath: '/admin/reviews/$id'
+      preLoaderRoute: typeof AdminReviewsIdRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/faq/new': {
+      id: '/admin/faq/new'
+      path: '/faq/new'
+      fullPath: '/admin/faq/new'
+      preLoaderRoute: typeof AdminFaqNewRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/admin/articles/new': {
       id: '/admin/articles/new'
-      path: '/admin/articles/new'
+      path: '/articles/new'
       fullPath: '/admin/articles/new'
       preLoaderRoute: typeof AdminArticlesNewRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/faq/$id/edit': {
+      id: '/admin/faq/$id/edit'
+      path: '/faq/$id/edit'
+      fullPath: '/admin/faq/$id/edit'
+      preLoaderRoute: typeof AdminFaqIdEditRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/admin/articles/$id/edit': {
       id: '/admin/articles/$id/edit'
-      path: '/admin/articles/$id/edit'
+      path: '/articles/$id/edit'
       fullPath: '/admin/articles/$id/edit'
       preLoaderRoute: typeof AdminArticlesIdEditRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRoute
     }
   }
 }
 
+interface AdminRouteChildren {
+  AdminDashboardRoute: typeof AdminDashboardRoute
+  AdminScheduledRoute: typeof AdminScheduledRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+  AdminArticlesNewRoute: typeof AdminArticlesNewRoute
+  AdminFaqNewRoute: typeof AdminFaqNewRoute
+  AdminReviewsIdRoute: typeof AdminReviewsIdRoute
+  AdminContentIndexRoute: typeof AdminContentIndexRoute
+  AdminFaqIndexRoute: typeof AdminFaqIndexRoute
+  AdminReviewsIndexRoute: typeof AdminReviewsIndexRoute
+  AdminArticlesIdEditRoute: typeof AdminArticlesIdEditRoute
+  AdminFaqIdEditRoute: typeof AdminFaqIdEditRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminDashboardRoute: AdminDashboardRoute,
+  AdminScheduledRoute: AdminScheduledRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminUsersRoute: AdminUsersRoute,
+  AdminArticlesNewRoute: AdminArticlesNewRoute,
+  AdminFaqNewRoute: AdminFaqNewRoute,
+  AdminReviewsIdRoute: AdminReviewsIdRoute,
+  AdminContentIndexRoute: AdminContentIndexRoute,
+  AdminFaqIndexRoute: AdminFaqIndexRoute,
+  AdminReviewsIndexRoute: AdminReviewsIndexRoute,
+  AdminArticlesIdEditRoute: AdminArticlesIdEditRoute,
+  AdminFaqIdEditRoute: AdminFaqIdEditRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminDashboardRoute: AdminDashboardRoute,
-  AdminResetRoute: AdminResetRoute,
+  AboutRoute: AboutRoute,
+  AdminRoute: AdminRouteWithChildren,
+  CareersRoute: CareersRoute,
+  CertificateVerificationRoute: CertificateVerificationRoute,
+  ContactRoute: ContactRoute,
+  CredentialsRoute: CredentialsRoute,
+  FaqRoute: FaqRoute,
+  TrainingRoute: TrainingRoute,
   InsightsSlugRoute: InsightsSlugRoute,
-  AdminIndexRoute: AdminIndexRoute,
+  ServicesSlugRoute: ServicesSlugRoute,
   InsightsIndexRoute: InsightsIndexRoute,
-  AdminArticlesNewRoute: AdminArticlesNewRoute,
-  AdminArticlesIndexRoute: AdminArticlesIndexRoute,
-  AdminArticlesIdEditRoute: AdminArticlesIdEditRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
